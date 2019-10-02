@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MQTT over websocket</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            background-image: url(https://images.pexels.com/photos/207301/pexels-photo-207301.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500s);
+            background-size: cover;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        #title{
+            color: white;
+            font-size: 50px;
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        #brokerSection{
+            border-radius: 10px;
+            box-shadow: -1px 2px 8px 4px #888888;
+            width: 270px;
+            height: 190px;
+            padding:50 50px;
+            position: absolute;
+            top:152px;
+            left: 150px;
+            background-color: rgba(128, 128, 128,0.6);
+        }
+        #publishSection{
+            border-radius: 10px;
+            box-shadow: -1px 2px 8px 4px #888888;
+            width: 360px;
+            height: 190px;
+            padding:50 50px;
+            position: absolute;
+            top:152px;
+            left: 459px;
+            right: 520px;
+            background-color: rgba(128, 128, 128,0.6);
+        }
+        
+        #subscribeSection{
+            border-radius: 10px;
+            box-shadow: -1px 2px 8px 4px #888888;
+            width: 360px;
+            height: 190px;
+            padding:50 50px;
+            position: absolute;
+            top:152px;
+            left: 866px;
+            background-color: rgba(128, 128, 128,0.6);
+        }
+        table, th ,td,tbody{
+            margin-top: 400px;
+            border: 1px solid black;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+            border-collapse: collapse;
+            background-color: rgba(128, 128, 128,0.6);
+        }
+        .t{
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        #status{
+          color:green;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 id="title">MQTT over websocket</h1>
+    </center>
+    <div id="brokerSection">
+        <center>
+            <h1 class="t">Broker</h1>
+            <label>Address</label>
+            <input id="broker" value="wss://test.mosquitto.org:8081/mqtt"><br><br>
+            <button type="button" class="btn btn-primary" id="btnConnect">Connect</button><br>
+            <p id="status">Status Unknown.........</p>
+        </center>
+    </div>
+    <div id="publishSection">
+        <center>
+            <h1 class="t">Publish</h1>
+            <label>Topic</label>
+            <input type="text" id="pubTopic" name="topic"><br><br>
+            <label>Payload</label>
+            <input type="text" id="pubPayload" name="payload"><br>
+            <button type="button" class="btn btn-primary" id="btnPublish">Publish</button>
+        </center>
+    </div>
+    <div id="subscribeSection">
+        <center>
+            <h1 class="t">Subscribe</h1>
+            <label>Topic</label>
+            <input type="text" id="subTopic" name="subTopic"><br><br>
+            <button type="button" class="btn btn-primary" id="btnSubscribe">Subscribe</button>
+        </center>
+    </div>
+    <center>
+        <table id="brokerTable">
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Payload</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="brokerBody"></tbody>
+        </table>
+    </center>
+</body>
+
+<script src="scripts/controller.js"></script>
+<script src="scripts/browserMqtt.js"></script>
+
+</html>
