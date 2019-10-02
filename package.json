@@ -1,27 +1,29 @@
 {
-  "name": "mows",
+  "name": "herokumqtt",
   "version": "1.0.0",
-  "description": "MQTT over Websocket Web App",
+  "description": "herokuMqtt",
   "main": "index.js",
+  "dependencies": {
+    "express": "^10.15.3"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jun Rey Ansing",
-  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/junreycloudstrife/mows.git"
+    "url": "git+https://github.com/Hannah-Pelino-24/herokuMqtt.git"
   },
   "keywords": [
-    "mows",
-    "mqtt",
-    "websocket"
+    "mqtt"
   ],
+  "author": "Hannah Mae Peliño",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/junreycloudstrife/mows/issues"
+    "url": "https://github.com/Hannah-Pelino-24/herokuMqtt/issues"
   },
-  "homepage": "https://github.com/junreycloudstrife/mows#readme",
-  "dependencies": {
-    "express": "^4.17.1"
+  "homepage": "https://github.com/Hannah-Pelino-24/herokuMqtt#readme",
+  "engines": {
+    "node": "10.5"
   }
 }
